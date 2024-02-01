@@ -2,9 +2,19 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        String[] stringArray = s.split(" ");
-        Arrays.sort(stringArray, (a,b)-> Integer.compare(Integer.parseInt(a),Integer.parseInt(b)));
-        String result = stringArray[0]+ " "+ stringArray[stringArray.length-1];
-        return  result;
+        String[] strArray = s.split(" ");
+        int[] intArray = new int[strArray.length];
+        int i=0;
+        for(String str : strArray){
+            intArray[i] = Integer.parseInt(str);
+            i++;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(Arrays.stream(intArray).min().getAsInt());
+        sb.append(" ");
+        sb.append(Arrays.stream(intArray).max().getAsInt());
+        
+        return sb.toString();
+
     }
 }
