@@ -14,9 +14,6 @@ class Solution {
     
         result[0]=max;
         result[1]=x*y/max;
-        System.out.println(Arrays.toString(result));
-        System.out.println(Arrays.toString(nums));
-
         return result;
     }
 }
