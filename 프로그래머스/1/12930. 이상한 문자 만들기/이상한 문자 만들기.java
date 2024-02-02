@@ -3,7 +3,6 @@ class Solution {
     public String solution(String s) {
         StringBuilder sb = new StringBuilder();
         String[] array = s.split(" ",-1);
-        System.out.println(Arrays.toString(array));
         
         for(int i=0; i<array.length; i++){
             for(int j=0; j<array[i].length(); j++){
@@ -13,8 +12,6 @@ class Solution {
             sb.append(" ");
         }
         sb.deleteCharAt(s.length());
-        System.out.println(sb.toString());
-
         return sb.toString();
     }
 }
