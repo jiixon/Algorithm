@@ -9,11 +9,7 @@ class Solution {
                     sb.append(i);
             }
         }
-        sb.append(0);
-        char[] array = sb.toString().toCharArray();
-        for(int i=array.length-2; i>=0; i--){
-            sb.append(array[i]);
-        }
-        return sb.toString();
+        String answer = sb.toString() + "0";
+        return answer + sb.reverse();
     }
 }
