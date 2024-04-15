@@ -16,13 +16,6 @@ public class Main {
             input[i][0] = st.nextToken();
             input[i][1] = st.nextToken();
         }
-
-        int[][] count = new int[num][2];
-        for (int i = 0; i < num; i++) {
-            for (int j = 0; j <2; j++){
-                count[i][j] = 0;
-            }
-        }
         int[] result = new int[num];
 
         for(int i=0; i<num; i++){
