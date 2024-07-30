@@ -4,7 +4,6 @@ class Solution {
         Set<Integer> set = new HashSet<Integer>();
         int len = elements.length;
         int[] arr = new int[len*2];
-        int value = 0; 
         for(int i = 0; i<len; i++){
             arr[i] = elements[i];
             arr[i+len] = elements[i];
