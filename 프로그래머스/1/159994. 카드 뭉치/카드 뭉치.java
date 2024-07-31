@@ -1,21 +1,24 @@
 import java.util.*;
 class Solution {
     public String solution(String[] cards1, String[] cards2, String[] goal) {
-        ArrayList<String> car1 = new ArrayList<>(Arrays.asList(cards1));      
-        ArrayList<String> car2 = new ArrayList<>(Arrays.asList(cards2));
-        
-        for(String str: goal){
-            if(!car1.isEmpty() && str.equals(car1.get(0))){
-                car1.remove(car1.get(0));
+        String answer = "";
+        int[] arr = new int[goal.length];
+        for(int i = 0; i<goal.length; i++){
+            for(int j = 0; j<cards1.length; j++){
+                if(cards1[j].equals(goal[i])) arr[i] = j;
             }
-            else if(!car2.isEmpty() && str.equals(car2.get(0))){
-                car2.remove(car2.get(0));
+            for(int j = 0; j<cards2.length; j++){
+                if(cards2[j].equals(goal[i])) arr[i] = j;
             }
-            else{
-                return "No";
-            }
+           
         }
-        return "Yes";
-        
+        boolean check = true;
+        for(int i = 0; i<arr.length-1; i++){
+            if(arr[i]!=arr[i+1] && arr[i]!=arr[i+1]-1) check = false;
+
+        }
+
+        if(check) return "Yes";
+        else return "No";
     }
 }
