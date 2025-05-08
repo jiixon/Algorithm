@@ -12,7 +12,6 @@ class Solution {
             long sum = 0; //중간값동안 탐색할 수 있는 총시간
             for(int time : times){
                 sum += mid / time;
-                if(sum > n) break;
             }
             
             if(sum >= n){
