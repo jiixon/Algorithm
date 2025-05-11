@@ -2,30 +2,28 @@ import java.util.*;
 class Solution {
     public int solution(int[] topping) {
         int answer = 0;
-        int[] leftCount = new int[10001];
-        int[] rightCount = new int[10001];
+        int[] left = new int[10001];
+        int[] right = new int[10001];
+        
+        int leftCount = 0;
+        int rightCount = 0;
+
+        //오른쪽으로 초기화 => rightCount는 총 토핑 종류 수
+        for(int i = 0; i<topping.length; i++){
+            right[topping[i]]++;
+            if(right[topping[i]] == 1) rightCount++;
+        }
         
         for(int i = 0; i<topping.length; i++){
-            rightCount[topping[i]]++;
+            left[topping[i]]++;
+            if(left[topping[i]] == 1) leftCount++;
+            right[topping[i]]--;
+            if(right[topping[i]] == 0) rightCount--;
+            
+            if(leftCount == rightCount) answer++;
         }
-        
-        int leftUnique = 0, rightUnique = uniqueCount(rightCount);
-        
-        for(int i = 0;i<topping.length; i++){
-            if (leftCount[topping[i]] == 0) leftUnique++;
-            leftCount[topping[i]]++;
-            rightCount[topping[i]]--;
-            if (rightCount[topping[i]] == 0) rightUnique--;
-            if(leftUnique == rightUnique) answer++;
-        }
-        
         return answer;
     }
-    private int uniqueCount(int[] count){
-        int kinds = 0;
-        for(int i = 0; i<count.length; i++){
-            if(count[i]>0) kinds++;
-        }
-        return kinds;
-    }
+        
+       
 }
