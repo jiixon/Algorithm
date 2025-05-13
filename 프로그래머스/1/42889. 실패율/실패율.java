@@ -19,7 +19,7 @@ class Solution {
             stageList.add(stage);
         }
         
-        Collections.sort(stageList, Collections.reverseOrder());
+        Collections.sort(stageList);
         
         for(int i = 0; i<stageList.size(); i++){
             answer[i] = stageList.get(i).id;
@@ -39,10 +39,10 @@ class Stage implements Comparable<Stage> {
 
     @Override
     public int compareTo(Stage o) {
-        if (failure < o.failure ) {
+        if (failure > o.failure ) {
               return -1;
         }
-        if (failure > o.failure ) {
+        if (failure < o.failure ) {
             return 1;
         }
         return 0;
