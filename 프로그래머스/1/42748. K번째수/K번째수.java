@@ -1,21 +1,20 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
-        int[] answer = new int[commands.length];
-
-        for(int i=0; i<commands.length; i++){   
-            int startInx = commands[i][0]-1;
-            int endInx = commands[i][1]-1;
-            int kInx = commands[i][2];
+        int[] result = new int[commands.length];
+        for(int i = 0; i<commands.length; i++){
             
-            int[] tmp = new int[endInx - startInx +1];
-            
-            for(int j=startInx, idx = 0; j<=endInx; j++, idx++){
-                tmp[idx]=array[j]; 
+            int start = commands[i][0];
+            int end = commands[i][1];
+            int point = commands[i][2];
+            ArrayList<Integer> list = new ArrayList<>();
+            for(int j = start-1; j<=end-1; j++){
+                list.add(array[j]);
             }
-            Arrays.sort(tmp);
-            answer[i]=tmp[kInx-1];
+            Collections.sort(list);
+            result[i] = list.get(point-1);
         }
-        return answer;
+        
+        return result;
     }
 }
