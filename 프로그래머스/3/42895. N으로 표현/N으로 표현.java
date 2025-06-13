@@ -2,7 +2,7 @@ import java.util.*;
 class Solution {
     public int solution(int N, int number) {
         int answer = 0;
-        Set<Integer>[] dp = new Set[9];
+        Set<Integer>[] dp = new HashSet[9];
         if(N == number) {
             return 1;
         }
