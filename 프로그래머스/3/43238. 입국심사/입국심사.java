@@ -15,8 +15,9 @@ class Solution {
             }
             
             if(sum >= n){
-                answer = mid;
+                answer = mid; //최소 시간 일단 저장
                 right = mid - 1;
+                
             }else {
                 left = mid + 1;
             }
