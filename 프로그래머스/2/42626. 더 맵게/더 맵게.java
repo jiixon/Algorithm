@@ -6,14 +6,15 @@ class Solution {
         for(int i : scoville){
             pq.add(i);
         }
-        while(pq.size() >=2 && pq.peek()<K){
-            Integer first = pq.poll();
-            Integer second = pq.poll();
-            pq.add(first + (second *2));
+        
+        while(pq.size()>=2 && pq.peek() < K){
+            int first = pq.poll();
+            int second = pq.poll();
+            int newScoville = first + second*2;
+            pq.add(newScoville);
             answer++;
         }
-        if(pq.peek() <K) return -1;
-        
+        if(pq.peek() < K) return -1;
         return answer;
     }
 }
