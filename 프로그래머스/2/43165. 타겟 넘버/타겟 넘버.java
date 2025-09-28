@@ -1,17 +1,16 @@
+import java.util.*;
 class Solution {
-    int count = 0;
     public int solution(int[] numbers, int target) {
-        dfs(numbers, target, 0, 0);
-        return count;
+        return dfs(numbers, target, 0, 0);
+        
     }
-    
-    private void dfs(int[] numbers, int target, int sum, int idx){
-        if(idx == numbers.length){
-            if(sum == target) count++;
-            return;
-        } 
-        dfs(numbers, target, sum+numbers[idx], idx+1);
-        dfs(numbers, target, sum-numbers[idx], idx+1);
+    private int dfs(int[] numbers, int target, int depth, int sum){
+        if(depth == numbers.length){
+            return sum == target ? 1 : 0;
+        }
+        
+        return dfs(numbers, target, depth+1, sum + numbers[depth]) + 
+            dfs(numbers, target, depth+1, sum - numbers[depth]);
     }
     
 }
